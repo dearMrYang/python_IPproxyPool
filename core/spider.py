@@ -79,6 +79,9 @@ def ip_spider_process(rules,all_queue,my_mongo):
     for t in thread_list:
         t.start()
 
+    for t in thread_list:
+        t.join()
+
 
 
 

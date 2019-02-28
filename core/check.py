@@ -6,6 +6,9 @@ from core import settings
 
 
 # 2.1 验证爬取ip存入mongdb
+from core.flask_server import start_server
+
+
 def checkout_func(proxy, my_mongo):
     ip = "{}:{}".format(proxy['ip'],proxy['port'])
     proxy_dict = {
@@ -59,6 +62,7 @@ def check_db_func(proxy,my_mongo):
 
 # 3.2 进程调用
 def check_db_process(my_mongo):
+    start_server()
     while True:
         try:
             my_mongo.connect()
