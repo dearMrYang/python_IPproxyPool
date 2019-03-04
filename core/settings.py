@@ -1,28 +1,61 @@
 # -*- coding: utf-8 -*-
 import random
+
 # 请求时间
 TIMEOUT = 5
 # 爬取规则
 RULES = [
     {
-        'url': ['https://www.kuaidaili.com/free/inha/%s/' % page for page in range(1,50)],
+        'name': '快代理',
+        'url': ['https://www.kuaidaili.com/free/inha/%s/' % page for page in range(1, 50)],
         'type': 'xpath',
         'pattern': '//div[@id="list"]//tbody/tr',
-        "data":{
-            'ip':'./td[1]/text()',
-            'port':'./td[2]/text()',
-            'addr':'./td[5]/text()'
-        }
+        "data": {
+            'ip': './td[1]/text()',
+            'port': './td[2]/text()',
+        },
+        'Host': 'www.kuaidaili.com'
     },
     {
-        'url': ['https://www.xicidaili.com/nn/%s' % page for page in range(1,50)],
+        'name': '西刺代理',
+        'url': ['https://www.xicidaili.com/nn/%s' % page for page in range(1, 50)],
         'type': 'xpath',
         'pattern': '//table[@id="ip_list"]//tr[position()>1]',
-        "data":{
-            'ip':'./td[2]/text()',
-            'port':'./td[3]/text()',
-            'addr':'./td[4]/a/text()'
-        }
+        "data": {
+            'ip': './td[2]/text()',
+            'port': './td[3]/text()',
+        },
+        'Host': 'www.xicidaili.com'
+    },
+    {
+        'name': '66代理',
+        'url': ['http://www.66ip.cn/%s.html' % page for page in range(1, 50)],
+        'type': 'xpath',
+        'pattern': '//div[@id="main"]//table//tr[position()>1]',
+        "data": {
+            'ip': './td[1]/text()',
+            'port': './td[2]/text()',
+        },
+        'Host': 'm.66ip.cn'
+    },
+    {
+        'name': '89代理', # IP少，仅爬10页
+        'url': ['http://www.89ip.cn/index_%s.html' % page for page in range(1, 10)],
+        'type': 'xpath',
+        'pattern': '//tbody/tr',
+        "data": {
+            'ip': './td[1]/text()',
+            'port': './td[2]/text()',
+        },
+        'Host': 'www.89ip.cn',
+    },
+    {  # 此时re仅为这一网址服务
+        'name': 'github开源',
+        'url': ['https://raw.githubusercontent.com/fate0/proxylist/master/proxy.list'],
+        'type': 're',
+        'pattern': '',
+        'data': '',
+        'Host': 'raw.githubusercontent.com'
     },
 ]
 
@@ -32,7 +65,6 @@ MONGO_PORT = 27017
 
 # True每次启动清空数据库
 DEBUG = True
-
 
 #  头
 USER_AGENTS = [

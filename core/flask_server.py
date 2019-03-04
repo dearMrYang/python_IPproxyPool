@@ -11,7 +11,7 @@ def index():
     try:
         proxy = my_mongo.find(True)
         my_mongo.close()
-        return "<h2>{}:{}</h2><b>{}<b>".format(proxy['ip'],proxy['port'],proxy['addr'])
+        return "<h2>{}:{}</h2>".format(proxy['ip'],proxy['port'])
     except:
         return "等等再刷新.."
 

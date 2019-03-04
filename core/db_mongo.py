@@ -37,6 +37,7 @@ class MyMongo():
 
 if __name__ == '__main__':
     db = MyMongo()
+    print('asdfas',db.find(False))
     # db.insert({'ip':'11',"port":11})
     # db.insert({'ip':'22',"port":22})
     # db.insert({'ip':'33',"port":33})
