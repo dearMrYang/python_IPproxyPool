@@ -9,13 +9,13 @@
 
 
 
-#### 步骤
+### 步骤
     1. 爬取网站ip
-        2. 验证爬取的ip是否可用
+    2. 验证爬取的ip是否可用
         - 可用加入使数据库
-        3. 验证数据库ip是否可用
+    3. 验证数据库ip是否可用
         - 不可用删除
-        4. flask获取数据库ip
+    4. flask获取数据库ip
 
 ### 目录
     - core 代码文件
@@ -24,4 +24,5 @@
         - settings.py   配置文件，爬取规则
         - spider.py 爬取ip解析ip
         - check.py  验证ip文件
+        - start.py 开始
     - manage.py启动文件 
